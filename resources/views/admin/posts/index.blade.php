@@ -2,7 +2,7 @@
 @section('title', 'Listagem dos Posts')
 
 @section('content')
-<h1> Posts </h1>
+
     <div class="container">
         <a class="btn btn-secondary" href="{{ route('posts.create') }}" 
             > Novo Post <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -27,7 +27,7 @@
             <button class="btn btn-outline-success " type="submit">Filtrar</button>
         </form>
         </nav>
-
+        <h1> Posts </h1>
                 @foreach ($posts as $post)
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -39,6 +39,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text">{{ $post->content }}</p>
+                           
 
                             <a href="{{ route('posts.show', $post->id) }}"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
