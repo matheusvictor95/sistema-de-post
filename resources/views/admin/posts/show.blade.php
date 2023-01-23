@@ -5,6 +5,7 @@
 <ul>
     <li><strong>Título: </strong>{{$post->title}}</li>
     <li><strong>Conteúdo: </strong>{{$post->content}}</li>
+    <li><strong>Id:</strong>{{$post->categoria->name}}</li>
     
 </ul>
 <form action="{{route('posts.destroy',$post->id)}}" method="post">

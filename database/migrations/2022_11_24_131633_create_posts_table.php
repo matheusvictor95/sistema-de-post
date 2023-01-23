@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title', 160)->unique();
             $table->string('image');
             $table->text('content')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
     }
@@ -29,6 +31,10 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('posts', function (Blueprint $table){
+            $table->dropForeign('categoria_id');
+            $table->dropColumn('categoria_id');
+        });
         Schema::dropIfExists('posts');
     }
 }

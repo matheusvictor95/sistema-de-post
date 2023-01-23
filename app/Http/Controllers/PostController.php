@@ -64,10 +64,11 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        $categoria = Categoria::get();
         if (!$post = Post::findorfail($id)) {
             return redirect()->back();
         }
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post','categoria'));
     }
 
     public function update(StoreUpdatePost $request, $id)
@@ -80,12 +81,13 @@ class PostController extends Controller
         $data = $request->all();
         if ($request->image->isValid()) {
             if (Storage::exists($post->image))
-                Storage::delete($post->image);
-
+            Storage::delete($post->image);
+            
             $namefile = Str::of($request->title)->slug('-') . '.' .$request->image->getClientORiginalExtension();
-
+            
             $image = $request->image->storeAs('posts', $namefile);
             $data['image'] = $image;
+            // dd($data);
         }
 
         $post->update($data);

@@ -27,10 +27,10 @@
 
                 <div class="collapse navbar-collapse" id="navbarsExample02">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('posts.index') }}" class="nav-link active" aria-current="page"
                                 href="#">Home</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('categoria.index') }}" class="nav-link">Categorias</a>
                         </li>

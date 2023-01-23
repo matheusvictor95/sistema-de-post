@@ -37,8 +37,10 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text">{{ $post->content }}</p>
+                            <h5 class="card-title">Título:<br> {{ $post->title }}</h5>
+                            <p class="card-text">Categoria: <br> {{$post->categoria->name}}</p>
+                            <p class="card-text">Contéudo: <br> {{ $post->content }}</p>
+
                            
 
                             <a href="{{ route('posts.show', $post->id) }}"><svg xmlns="http://www.w3.org/2000/svg"
